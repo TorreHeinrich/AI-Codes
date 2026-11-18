@@ -1,0 +1,6 @@
+{
+  "name": "200 KI-Codes – Das Workbook | tedigital",
+  "description": "Ein Wort statt 200-Wörter-Prompt. 200 praxiserprobte Text- und Visual-Codes für ChatGPT, Claude, Gemini & Bild-KIs als PDF-Workbook.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

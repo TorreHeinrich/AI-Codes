@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0A1B31;
+  --color-panel: #0D2240;
+  --color-line: #1D3659;
+  --color-chip: #06122A;
+  --color-chiptag: #13294A;
+  --color-accent: #E8890C;
+  --color-accenthover: #F59819;
+  --color-xraybg: #040C18;
+  --color-xraycyan: #8FE3FF;
+  --color-xraywhite: #E6FAFF;
+  --color-ink: #EEF2F6;
+  --color-labelgray: #8DA2BD;
+  --color-bodytext: #C5D1DF;
+
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    background-color: #0A1B31;
+    color: #C5D1DF;
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(circle at 92% 4%, rgba(232, 137, 12, 0.12) 0%, rgba(232, 137, 12, 0.03) 32%, transparent 62%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.032) 1px, transparent 1px);
+    background-size: 100% 100%, 26px 26px, 26px 26px;
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: #E8890C;
+    color: #0A1B31;
+  }
+}
+
+.xray-glow {
+  filter: drop-shadow(0 0 4px rgba(143, 227, 255, 0.55));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

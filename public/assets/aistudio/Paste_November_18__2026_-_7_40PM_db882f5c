@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>200 KI-Codes – Das Workbook für ChatGPT, Claude & Co. | tedigital</title>
+  <meta name="description" content="Ein Wort statt 200-Wörter-Prompt. 200 praxiserprobte Text- und Visual-Codes für ChatGPT, Claude, Gemini & Bild-KIs. Jetzt als PDF-Workbook sichern." />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Poppins (Display), Inter (Body), Newsreader (Caladea-Look Italic), JetBrains Mono (Code/Labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Poppins:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0A1B31',
+            panel: '#0D2240',
+            line: '#1D3659',
+            chip: '#06122A',
+            chiptag: '#13294A',
+            accent: '#E8890C',
+            accenthover: '#F59819',
+            xraybg: '#040C18',
+            xraycyan: '#8FE3FF',
+            xraywhite: '#E6FAFF',
+            ink: '#EEF2F6',
+            labelgray: '#7088A6',
+            bodytext: '#BFCBDB',
+          },
+          fontFamily: {
+            display: ['Poppins', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Newsreader', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Technisches Hintergrund-Raster & subtiler Glow wie im PDF-Workbook */
+    body {
+      background-color: #0A1B31;
+      color: #BFCBDB;
+      background-image: 
+        radial-gradient(circle at 92% 4%, rgba(232, 137, 12, 0.14) 0%, rgba(232, 137, 12, 0.03) 32%, transparent 62%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 100% 100%, 26px 26px, 26px 26px;
+      background-attachment: fixed;
+    }
+
+    /* Röntgen-Scanlines und Glow für das Cover-Artwork */
+    .xray-panel {
+      background-color: #040C18;
+      background-image: 
+        radial-gradient(ellipse at 40% 50%, rgba(143, 227, 255, 0.14) 0%, transparent 68%),
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.03) 0px,
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+    }
+
+    .xray-glow {
+      filter: drop-shadow(0 0 4px rgba(143, 227, 255, 0.65));
+    }
+
+    @keyframes pulseScan {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 0.9; }
+    }
+    .scan-blink {
+      animation: pulseScan 3s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-navy overflow-x-hidden">
+
+  <!-- 1. TOP LAUNCH BANNER -->
+  <div class="bg-panel border-b border-line sticky top-0 z-40 backdrop-blur-md bg-opacity-95">
+    <div class="max-w-6xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-accent animate-ping"></span>
+        <span class="font-mono uppercase tracking-wider text-accent font-bold">LAUNCH-ANGEBOT:</span>
+        <span class="text-ink font-medium">7 Tage lang nur <strong class="text-white">14,95 €</strong> <span class="line-through text-labelgray">statt 19,95 €</span></span>
+      </div>
+      <div class="flex items-center gap-3 ml-auto">
+        <span id="launch-timer" class="hidden sm:inline-block font-mono text-xs bg-chip border border-line px-2.5 py-1 rounded text-xraycyan">Endet in 06T : 23S : 48M</span>
+        <a href="#angebot" class="bg-accent hover:bg-accenthover text-navy font-display font-bold text-xs px-3.5 py-1.5 rounded transition">
+          Jetzt sichern →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION / MARKE -->
+  <header class="max-w-6xl mx-auto px-4 pt-6 pb-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2.5 group">
+      <div class="w-8 h-8 rounded-[5px] bg-accent flex items-center justify-center font-display font-extrabold text-navy text-sm tracking-tight group-hover:scale-105 transition">
+        td
+      </div>
+      <span class="font-display font-bold text-ink text-xl tracking-tight">tedigital</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6 font-mono text-xs uppercase tracking-widest text-labelgray">
+      <a href="#vorher-nachher" class="hover:text-ink transition">Beispiele</a>
+      <a href="#einblick" class="hover:text-ink transition">Einblick</a>
+      <a href="#gratis-probe" class="hover:text-ink transition">Gratis-Test</a>
+      <a href="#faq" class="hover:text-ink transition">FAQ</a>
+    </nav>
+    <a href="#angebot" class="font-mono text-xs uppercase tracking-wider text-accent border border-accent/40 hover:bg-accent/10 px-3 py-2 rounded transition">
+      Workbook · 14,95 €
+    </a>
+  </header>
+
+  <!-- 2. HERO BEREICH -->
+  <section class="max-w-6xl mx-auto px-4 pt-6 pb-16 md:pt-12 md:pb-24">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+      
+      <!-- Linke Spalte: Copy & CTA -->
+      <div class="lg:col-span-6 space-y-6">
+        <div class="inline-flex items-center gap-2 bg-panel border border-line px-3 py-1.5 rounded-md">
+          <span class="font-mono text-[11px] uppercase tracking-widest text-accent font-semibold">FÜR CHATGPT, CLAUDE, GEMINI & BILD-KIS</span>
+        </div>
+
+        <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[54px] text-ink leading-[1.08] tracking-tight">
+          <span class="text-white">200 KI-Codes.</span><br />
+          Ein Wort statt <span class="text-accent">200-Wörter-Prompt.</span>
+        </h1>
+
+        <p class="font-serif italic text-xl sm:text-2xl text-[#BAC6D6] leading-relaxed">
+          Hör auf, lange Anweisungen zu tippen. Schreib einfach 
+          <span class="not-italic font-mono text-sm sm:text-base font-bold text-accent bg-chiptag px-2 py-0.5 rounded border border-line">/XRAY</span>, 
+          <span class="not-italic font-mono text-sm sm:text-base font-bold text-accent bg-chiptag px-2 py-0.5 rounded border border-line">/ELI5</span> oder 
+          <span class="not-italic font-mono text-sm sm:text-base font-bold text-accent bg-chiptag px-2 py-0.5 rounded border border-line">/TLDR</span> – und hol sofort bessere Ergebnisse aus deiner KI.
+        </p>
+
+        <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <a href="#digistore24-checkout-placeholder" onclick="handleCheckoutClick(event)" class="bg-accent hover:bg-accenthover text-navy font-display font-bold text-base sm:text-lg px-7 py-4 rounded-lg shadow-lg shadow-accent/20 text-center transition transform hover:-translate-y-0.5">
+            Jetzt Workbook sichern – 14,95 €
+          </a>
+          <a href="#gratis-probe" class="bg-panel hover:bg-line/60 border border-line text-ink font-medium text-sm sm:text-base px-5 py-4 rounded-lg text-center transition">
+            Erst 20 Codes gratis testen
+          </a>
+        </div>
+
+        <p class="font-mono text-xs text-labelgray flex flex-wrap items-center gap-x-4 gap-y-1">
+          <span>✓ Sofort-Download (PDF)</span>
+          <span>✓ Dunkle & helle Druck-Version</span>
+          <span>✓ Geprüfte Prompt-Expertise (Google & Vanderbilt)</span>
+        </p>
+      </div>
+
+      <!-- Rechte Spalte: Produkt-Mockup ("Instant Access" Bundle aus 3D-Cover & aufgeschlagenem Workbook) -->
+      <div class="lg:col-span-6">
+        <div class="relative group">
+          <!-- Subtiler Cyan- & Orange-Glow im Hintergrund wie auf deinem Mockup -->
+          <div class="absolute -inset-2 bg-gradient-to-tr from-xraycyan/20 via-transparent to-accent/20 rounded-2xl blur-2xl opacity-80 pointer-events-none"></div>
+
+          <!-- Hinweis-Badge für deinen Bild-Upload auf dem Webspace -->
+          <div class="relative bg-white/95 rounded-2xl p-4 sm:p-6 shadow-2xl border border-line/40 overflow-hidden">
+            
+            <!-- HINWEIS FÜR LIVEGANG: Sobald du image_378ab9.jpg auf deinen Server lädst, kannst du das <img>-Tag aktivieren und den SVG/HTML-Mockup-Container darunter ausblenden -->
+            <!-- <img src="image_378ab9.jpg" alt="200 KI-Codes Workbook Bundle" class="w-full h-auto rounded-xl object-contain" /> -->
+
+            <!-- Hochauflösende Vorschau deines gewählten Instant-Access-Bundles (3D-Cover + aufgeschlagenes Workbook) -->
+            <div class="grid grid-cols-12 gap-3 sm:gap-4 items-center py-2">
+              
+              <!-- LINKS: 3D-Hardcover Buch (5 Spalten) -->
+              <div class="col-span-5 relative transform -rotate-1 hover:rotate-0 transition duration-300">
+                <div class="bg-[#0B192C] rounded-r-lg rounded-l-[3px] border border-[#1E3A5F] shadow-[12px_14px_28px_rgba(4,12,24,0.45)] overflow-hidden relative">
+                  <!-- Buchrücken-Kante links -->
+                  <div class="absolute inset-y-0 left-0 w-2.5 bg-gradient-to-r from-[#040C18] via-[#152C4B] to-transparent border-r border-white/10"></div>
+                  
+                  <div class="pl-4 pr-2.5 pt-3 pb-3.5 space-y-2.5">
+                    <!-- Mini X-Ray Staubsauger auf dem Cover -->
+                    <div class="bg-[#040C18] border border-[#2E5577]/80 rounded p-1.5 relative">
+                      <svg viewBox="0 0 220 120" class="w-full h-auto xray-glow" aria-hidden="true">
+                        <line x1="8" y1="104" x2="212" y2="104" stroke="#8FE3FF" stroke-opacity="0.3" stroke-width="0.7" stroke-dasharray="2 3"/>
+                        <!-- Staubsauger-Körper -->
+                        <rect x="26" y="48" width="92" height="42" rx="21" fill="#8FE3FF" fill-opacity="0.08" stroke="#8FE3FF" stroke-width="1.2"/>
+                        <rect x="34" y="54" width="36" height="30" rx="5" fill="#8FE3FF" fill-opacity="0.14" stroke="#8FE3FF" stroke-width="0.8"/>
+                        <circle cx="86" cy="69" r="11" fill="#8FE3FF" fill-opacity="0.12" stroke="#8FE3FF" stroke-width="0.9"/>
+                        <rect x="101" y="59" width="14" height="20" rx="2" fill="#8FE3FF" fill-opacity="0.16" stroke="#8FE3FF" stroke-width="0.8"/>
+                        <rect x="56" y="38" width="34" height="12" rx="4" fill="none" stroke="#8FE3FF" stroke-width="1"/>
+                        <!-- Räder -->
+                        <circle cx="42" cy="96" r="6" fill="#040C18" stroke="#8FE3FF" stroke-width="1"/>
+                        <circle cx="102" cy="96" r="6" fill="#040C18" stroke="#8FE3FF" stroke-width="1"/>
+                        <!-- Schlauch & Rohr -->
+                        <path d="M 118 69 C 145 69, 148 26, 168 26" fill="none" stroke="#8FE3FF" stroke-width="4.5" stroke-opacity="0.35"/>
+                        <path d="M 118 69 C 145 69, 148 26, 168 26" fill="none" stroke="#8FE3FF" stroke-width="1"/>
+                        <line x1="170" y1="28" x2="192" y2="94" stroke="#8FE3FF" stroke-width="2.5"/>
+                        <polygon points="178,103 208,103 204,95 182,95" fill="#8FE3FF" fill-opacity="0.15" stroke="#8FE3FF" stroke-width="1"/>
+                        <!-- Callout Linien -->
+                        <line x1="50" y1="20" x2="50" y2="56" stroke="#E8890C" stroke-width="0.7"/>
+                        <circle cx="50" cy="56" r="1.5" fill="#E8890C"/>
+                        <line x1="86" y1="14" x2="86" y2="58" stroke="#E8890C" stroke-width="0.7"/>
+                        <circle cx="86" cy="58" r="1.5" fill="#E8890C"/>
+                        <line x1="145" y1="18" x2="145" y2="44" stroke="#E8890C" stroke-width="0.7"/>
+                        <circle cx="145" cy="44" r="1.5" fill="#E8890C"/>
+                      </svg>
+                      <div class="mt-1 inline-block bg-chip border border-line px-1.5 py-0.5 rounded text-[7px] font-mono text-accent font-bold">
+                        PROMPT /XRAY
+                      </div>
+                    </div>
+
+                    <!-- Cover-Titel -->
+                    <div class="pt-0.5">
+                      <div class="font-display font-extrabold text-xl sm:text-2xl text-xraycyan leading-none">200 KI-Codes</div>
+                      <div class="font-sans font-semibold text-[10px] sm:text-xs text-white leading-snug mt-1">
+                        – Das Workbook für ChatGPT, Claude & Co.
+                      </div>
+                    </div>
+
+                    <!-- Cover-Logo unten -->
+                    <div class="pt-2 border-t border-white/10 flex items-center justify-center gap-1.5">
+                      <span class="w-3.5 h-3.5 rounded-[3px] bg-xraycyan text-[#040C18] font-display font-extrabold text-[8px] flex items-center justify-center">td</span>
+                      <span class="font-display font-bold text-[10px] text-white tracking-tight">tedigital</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RECHTS: Aufgeschlagenes Spiral-Workbook (7 Spalten) -->
+              <div class="col-span-7 relative transform rotate-2 hover:rotate-0 transition duration-300">
+                <div class="bg-[#0A1B31] rounded-lg border border-[#1D3659] shadow-[10px_14px_26px_rgba(4,12,24,0.38)] grid grid-cols-2 overflow-hidden relative">
+                  
+                  <!-- Linke Innenseite: Einführung -->
+                  <div class="p-2.5 sm:p-3.5 border-r border-black/50 bg-gradient-to-l from-[#06122A]/60 to-transparent space-y-2">
+                    <div class="font-mono text-[7px] tracking-widest text-accent uppercase">00 — EINFÜHRUNG</div>
+                    <div class="font-display font-bold text-[11px] sm:text-xs text-white leading-tight">Was sind KI-Codes?</div>
+                    <p class="text-[7px] sm:text-[8px] text-bodytext leading-relaxed">
+                      Ein Wort statt eines ganzen Prompts. Kürzel wie <span class="text-accent font-mono">/ELI5</span> oder <span class="text-accent font-mono">/XRAY</span> schreibst du einfach vor deine Anfrage.
+                    </p>
+                    <div class="bg-accent/95 text-navy rounded px-2 py-1">
+                      <div class="font-mono text-[6px] font-bold uppercase tracking-wider">BEISPIEL-CODE</div>
+                      <div class="font-mono text-[8px] font-extrabold">› /tldr /eli5</div>
+                    </div>
+                    <div class="space-y-1 pt-0.5">
+                      <div class="h-1 w-full bg-line rounded"></div>
+                      <div class="h-1 w-5/6 bg-line rounded"></div>
+                      <div class="h-1 w-4/6 bg-line rounded"></div>
+                    </div>
+                  </div>
+
+                  <!-- Spiralbindung in der Mitte -->
+                  <div class="absolute inset-y-2 left-1/2 -translate-x-1/2 w-2.5 flex flex-col justify-between py-1 z-10 pointer-events-none">
+                    <span class="block h-1 w-full rounded-full bg-gradient-to-r from-gray-400 via-white to-gray-500 shadow"></span>
+                    <span class="block h-1 w-full rounded-full bg-gradient-to-r from-gray-400 via-white to-gray-500 shadow"></span>
+                    <span class="block h-1 w-full rounded-full bg-gradient-to-r from-gray-400 via-white to-gray-500 shadow"></span>
+                    <span class="block h-1 w-full rounded-full bg-gradient-to-r from-gray-400 via-white to-gray-500 shadow"></span>
+                    <span class="block h-1 w-full rounded-full bg-gradient-to-r from-gray-400 via-white to-gray-500 shadow"></span>
+                    <span class="block h-1 w-full rounded-full bg-gradient-to-r from-gray-400 via-white to-gray-500 shadow"></span>
+                    <span class="block h-1 w-full rounded-full bg-gradient-to-r from-gray-400 via-white to-gray-500 shadow"></span>
+                    <span class="block h-1 w-full rounded-full bg-gradient-to-r from-gray-400 via-white to-gray-500 shadow"></span>
+                  </div>
+
+                  <!-- Rechte Innenseite: ELI-Leiter -->
+                  <div class="p-2.5 sm:p-3.5 bg-gradient-to-r from-[#06122A]/50 to-transparent space-y-1.5">
+                    <div class="flex items-center justify-between border-b border-line pb-1">
+                      <span class="font-display font-bold text-[10px] sm:text-xs text-white">ELI-Leiter</span>
+                      <span class="font-mono text-[6.5px] text-accent">S. 03</span>
+                    </div>
+                    <div class="space-y-1 text-[7px] font-mono">
+                      <div class="flex items-center gap-1.5 bg-panel/90 border border-line rounded px-1.5 py-0.5">
+                        <span class="bg-accent text-navy font-bold px-1 rounded-[2px]">001</span>
+                        <span class="text-accent font-bold">/ELI5</span>
+                        <span class="text-ink font-sans ml-auto">5 Jahre</span>
+                      </div>
+                      <div class="flex items-center gap-1.5 bg-panel/90 border border-line rounded px-1.5 py-0.5">
+                        <span class="bg-accent text-navy font-bold px-1 rounded-[2px]">002</span>
+                        <span class="text-accent font-bold">/ELI10</span>
+                        <span class="text-ink font-sans ml-auto">10 Jahre</span>
+                      </div>
+                      <div class="flex items-center gap-1.5 bg-panel/90 border border-line rounded px-1.5 py-0.5">
+                        <span class="bg-accent text-navy font-bold px-1 rounded-[2px]">003</span>
+                        <span class="text-accent font-bold">/ELI15</span>
+                        <span class="text-ink font-sans ml-auto">15 Jahre</span>
+                      </div>
+                      <div class="flex items-center gap-1.5 bg-panel/90 border border-line rounded px-1.5 py-0.5">
+                        <span class="bg-accent text-navy font-bold px-1 rounded-[2px]">004</span>
+                        <span class="text-accent font-bold">/ELICOLLEGE</span>
+                        <span class="text-ink font-sans ml-auto">Uni</span>
+                      </div>
+                      <div class="flex items-center gap-1.5 bg-panel/90 border border-line rounded px-1.5 py-0.5">
+                        <span class="bg-accent text-navy font-bold px-1 rounded-[2px]">005</span>
+                        <span class="text-accent font-bold">/ELIPHD</span>
+                        <span class="text-ink font-sans ml-auto">Doktor</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dezente Bildunterschrift unter dem Mockup -->
+            <div class="mt-3 pt-2.5 border-t border-slate-200 flex items-center justify-between text-[11px] font-mono text-slate-600">
+              <span>200 KI-CODES · WORKBOOK BUNDLE</span>
+              <span class="text-accent font-bold">DARK + PRINT PDF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. INTERAKTIVER VORHER / NACHHER VERGLEICH -->
+  <section id="vorher-nachher" class="max-w-6xl mx-auto px-4 py-16 border-t border-line/60">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-2">01 — DER DIREKTVERGLEICH</div>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink">Schluss mit Romanen im Eingabefeld</h2>
+      <p class="mt-3 text-bodytext text-sm sm:text-base">
+        Wähle einen Anwendungsfall aus und sieh selbst, wie aus einem langen Prompt ein präziser Einzeiler wird.
+      </p>
+    </div>
+
+    <!-- Auswahl-Tabs -->
+    <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8" role="tablist">
+      <button onclick="switchExample(0)" id="tab-0" class="example-tab bg-accent text-navy font-mono text-xs font-bold px-4 py-2.5 rounded-md transition">
+        Fachtext verstehen
+      </button>
+      <button onclick="switchExample(1)" id="tab-1" class="example-tab bg-panel border border-line text-ink hover:border-accent/60 font-mono text-xs font-bold px-4 py-2.5 rounded-md transition">
+        E-Mail professionell kürzen
+      </button>
+      <button onclick="switchExample(2)" id="tab-2" class="example-tab bg-panel border border-line text-ink hover:border-accent/60 font-mono text-xs font-bold px-4 py-2.5 rounded-md transition">
+        Technik-Grafik erstellen
+      </button>
+    </div>
+
+    <!-- Vergleichs-Karten -->
+    <div class="grid md:grid-cols-2 gap-6 items-stretch">
+      <!-- Vorher -->
+      <div class="bg-panel/80 border border-line rounded-xl p-6 flex flex-col justify-between relative">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-mono text-xs uppercase tracking-wider text-red-400 bg-red-950/50 border border-red-800/50 px-2.5 py-1 rounded">VORHER · OHNE CODES</span>
+            <span id="before-words" class="font-mono text-xs text-labelgray">62 Wörter</span>
+          </div>
+          <p id="before-text" class="text-sm sm:text-base text-bodytext leading-relaxed italic">
+            „Bitte lies dir den folgenden sehr komplexen Fachtext genau durch. Ich möchte, dass du zuerst die allerwichtigsten Kernaussagen auf das Wesentliche zusammenfasst, ohne wichtige Fakten wegzulassen. Danach erkläre mir den Inhalt bitte noch einmal so einfach, klar und verständlich, dass ihn selbst ein fünfjähriges Kind ohne Vorwissen sofort begreifen kann. Verzichte dabei komplett auf komplizierte Fremdwörter.“
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-line/60 font-mono text-xs text-labelgray">
+          ⏱️ Dauert jedes Mal 45–60 Sekunden zum Tippen.
+        </div>
+      </div>
+
+      <!-- Nachher -->
+      <div class="bg-panel border-2 border-accent/80 rounded-xl p-6 flex flex-col justify-between shadow-xl shadow-accent/5 relative">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-mono text-xs uppercase tracking-wider text-accent bg-accent/15 border border-accent/40 px-2.5 py-1 rounded font-bold">NACHHER · MIT KI-CODES</span>
+            <span id="after-words" class="font-mono text-xs text-accent font-bold">2 Kürzel</span>
+          </div>
+
+          <div class="bg-chip border border-line rounded-lg p-4 mb-4 flex items-center justify-between gap-3">
+            <div class="font-mono text-sm sm:text-base overflow-x-auto">
+              <span class="text-labelgray">›</span>
+              <span id="after-subject" class="text-white ml-1">[Fachtext einfügen]</span>
+              <span id="after-code" class="text-accent font-bold ml-2">/tldr /eli5</span>
+            </div>
+            <button onclick="copyActiveCode()" id="copy-btn" class="shrink-0 bg-panel hover:bg-line text-ink font-mono text-xs px-3 py-1.5 rounded border border-line transition">
+              Kopieren
+            </button>
+          </div>
+
+          <p id="after-desc" class="text-sm text-bodytext leading-relaxed">
+            <strong class="text-accent">Was passiert:</strong> Die KI kürzt den Text zuerst auf das Wesentliche und erklärt ihn direkt danach in kinderleichter Sprache ohne Fachchinesisch.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-line/60 font-mono text-xs text-xraycyan">
+          ⚡ In 2 Sekunden eingegeben. Sofort reproduzierbar.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. DREI KERN-NUTZEN -->
+  <section class="max-w-6xl mx-auto px-4 py-14">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-panel border border-line rounded-xl p-6 relative overflow-hidden">
+        <div class="w-1 h-12 bg-accent absolute left-0 top-6 rounded-r"></div>
+        <div class="font-display font-extrabold text-4xl text-accent mb-3">01</div>
+        <h3 class="font-display font-bold text-xl text-ink mb-2">Massiv Zeit sparen</h3>
+        <p class="text-sm text-bodytext leading-relaxed">
+          Kein langes Überlegen mehr, wie du deine Anfrage formulieren musst. Ein kurzes Kürzel ersetzt ganze Absatz-Anweisungen.
+        </p>
+      </div>
+
+      <div class="bg-panel border border-line rounded-xl p-6 relative overflow-hidden">
+        <div class="w-1 h-12 bg-accent absolute left-0 top-6 rounded-r"></div>
+        <div class="font-display font-extrabold text-4xl text-accent mb-3">02</div>
+        <h3 class="font-display font-bold text-xl text-ink mb-2">Präzisere Antworten</h3>
+        <p class="text-sm text-bodytext leading-relaxed">
+          KI-Modelle wurden mit Millionen Internettexten trainiert und kennen Konzepte wie <span class="font-mono text-accent text-xs">/FIRSTPRINCIPLES</span> oder <span class="font-mono text-accent text-xs">/REDTEAM</span> bis ins Detail.
+        </p>
+      </div>
+
+      <div class="bg-panel border border-line rounded-xl p-6 relative overflow-hidden">
+        <div class="w-1 h-12 bg-accent absolute left-0 top-6 rounded-r"></div>
+        <div class="font-display font-extrabold text-4xl text-accent mb-3">03</div>
+        <h3 class="font-display font-bold text-xl text-ink mb-2">Sofort anwendbar</h3>
+        <p class="text-sm text-bodytext leading-relaxed">
+          Keine Plugins, kein Abo, keine Vorkenntnisse. PDF öffnen, Code ablesen, vor oder hinter deinen Text schreiben – fertig.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. EINBLICK INS WORKBOOK (SEITEN-VORSCHAUEN) -->
+  <section id="einblick" class="max-w-6xl mx-auto px-4 py-16 border-t border-line/60">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+      <div>
+        <div class="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-2">02 — BLICK INS BUCH</div>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink">13 Seiten komprimiertes Wissen ohne Fülltext</h2>
+      </div>
+      <div class="font-mono text-xs text-labelgray">
+        13 SEITEN A4 · ALLE CODES NUMMERIERT (001–200)
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-6">
+      <!-- Vorschau 1: Die ELI-Leiter -->
+      <div class="bg-panel border border-line rounded-xl p-5 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-xs font-mono text-labelgray pb-3 mb-4 border-b border-line">
+            <span>SEITE 03 · TEIL 1</span>
+            <span class="text-accent">TEXT-CODES</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-ink mb-1">Die ELI-Leiter</h3>
+          <p class="font-serif italic text-sm text-[#9FB1C7] mb-4">„Explain like I’m …“ – wähl dein Niveau</p>
+
+          <div class="bg-chip border border-line rounded-lg p-3.5 space-y-2.5">
+            <div class="flex items-center justify-between border-l-2 border-accent pl-2.5">
+              <div>
+                <div class="font-mono text-xs text-accent font-bold">001 · /ELI5</div>
+                <div class="text-xs text-ink font-semibold">5 Jahre · kinderleicht</div>
+              </div>
+              <span class="font-mono text-[10px] text-labelgray">EINFACH</span>
+            </div>
+            <div class="flex items-center justify-between border-l-2 border-accent pl-2.5">
+              <div>
+                <div class="font-mono text-xs text-accent font-bold">002 · /ELI10</div>
+                <div class="text-xs text-ink font-semibold">10 Jahre · Grundlagen</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between border-l-2 border-accent pl-2.5">
+              <div>
+                <div class="font-mono text-xs text-accent font-bold">004 · /ELICOLLEGE</div>
+                <div class="text-xs text-ink font-semibold">Uni · Studiumsniveau</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between border-l-2 border-accent pl-2.5">
+              <div>
+                <div class="font-mono text-xs text-accent font-bold">005 · /ELIPHD</div>
+                <div class="text-xs text-ink font-semibold">Doktor · Expertenniveau</div>
+              </div>
+              <span class="font-mono text-[10px] text-labelgray">EXPERTE</span>
+            </div>
+          </div>
+        </div>
+        <p class="mt-4 text-xs text-labelgray">Plus 105 weitere Text-Codes für Schreiben, Lernen, Struktur & Kritisches Denken.</p>
+      </div>
+
+      <!-- Vorschau 2: Visual-Codes -->
+      <div class="bg-panel border border-line rounded-xl p-5 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-xs font-mono text-labelgray pb-3 mb-4 border-b border-line">
+            <span>SEITE 07–09 · TEIL 2</span>
+            <span class="text-accent">VISUAL-CODES</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-ink mb-1">90 Kürzel für Bild-KIs</h3>
+          <p class="font-serif italic text-sm text-[#9FB1C7] mb-4">Von der Röntgenansicht bis zum Produktfoto</p>
+
+          <div class="space-y-2.5">
+            <div class="bg-chip border border-line rounded-lg p-3">
+              <div class="font-mono text-xs text-accent font-bold">111 · /XRAY</div>
+              <div class="text-xs text-bodytext mt-0.5">Röntgenblick: durchsichtige Hülle, Innenleben sichtbar</div>
+            </div>
+            <div class="bg-chip border border-line rounded-lg p-3">
+              <div class="font-mono text-xs text-accent font-bold">112 · /EXPLODEDVIEW</div>
+              <div class="text-xs text-bodytext mt-0.5">Zerlegt ein Objekt in schwebende Einzelteile</div>
+            </div>
+            <div class="bg-chip border border-line rounded-lg p-3">
+              <div class="font-mono text-xs text-accent font-bold">191 · /PRODUCTSHOT</div>
+              <div class="text-xs text-bodytext mt-0.5">Produktfoto im cleanen Studio-Look</div>
+            </div>
+          </div>
+        </div>
+        <p class="mt-4 text-xs text-labelgray">Perfekt für Midjourney, DALL-E, Flux, Ideogram & Adobe Firefly.</p>
+      </div>
+
+      <!-- Vorschau 3: Kombinieren & Regeln -->
+      <div class="bg-panel border border-line rounded-xl p-5 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-xs font-mono text-labelgray pb-3 mb-4 border-b border-line">
+            <span>SEITE 10–13 · TEIL 3</span>
+            <span class="text-accent">KOMBI-REZEPTE</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-ink mb-1">23 Rezepte & 5 Kombi-Regeln</h3>
+          <p class="font-serif italic text-sm text-[#9FB1C7] mb-4">So werden aus einzelnen Codes ganze Workflows</p>
+
+          <div class="bg-chip border border-line rounded-lg p-3.5 space-y-3">
+            <div>
+              <div class="font-mono text-[10px] text-labelgray">[Transkript]</div>
+              <div class="font-mono text-xs text-accent font-bold">› /meetingnotes /actionitems /table</div>
+              <div class="text-xs text-bodytext mt-1">Strukturierte Notizen plus Aufgaben, Verantwortliche & Termine als Tabelle.</div>
+            </div>
+            <div class="pt-2.5 border-t border-line">
+              <div class="font-mono text-[10px] text-accent uppercase tracking-wider mb-1">DAS BEISST SICH (NICHT MISCHEN)</div>
+              <div class="grid grid-cols-2 gap-1 font-mono text-[11px] text-accent">
+                <span>/FORMAL ≠ /CASUAL</span>
+                <span>/TLDR ≠ /DEEP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="mt-4 text-xs text-labelgray">Inklusive Praxistipps, was tun, wenn ein Code mal nicht sofort greift.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FÜR WEN IST DAS WORKBOOK? -->
+  <section class="max-w-6xl mx-auto px-4 py-14">
+    <div class="bg-panel border border-line rounded-2xl p-6 sm:p-10">
+      <div class="max-w-2xl mb-8">
+        <div class="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-2">03 — PRAXIS STATT HYPE</div>
+        <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink">Gemacht für deinen echten Alltag</h2>
+        <p class="text-sm text-bodytext mt-2">
+          Keine leeren „Werde-über-Nacht-reich“-Versprechen. Sondern ein ehrliches Werkzeug für alle, die KI täglich produktiv nutzen.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-chip/80 border border-line rounded-xl p-5">
+          <div class="text-2xl mb-2">💼</div>
+          <h3 class="font-display font-bold text-base text-ink mb-1.5">Berufstätige & Büroalltag</h3>
+          <p class="text-xs sm:text-sm text-bodytext leading-relaxed">
+            E-Mails glätten (<span class="font-mono text-accent">/DIRECT</span>), lange Protokolle auswerten (<span class="font-mono text-accent">/ACTIONITEMS</span>) oder Konzepte kritisch prüfen lassen (<span class="font-mono text-accent">/PREMORTEM</span>).
+          </p>
+        </div>
+
+        <div class="bg-chip/80 border border-line rounded-xl p-5">
+          <div class="text-2xl mb-2">🎓</div>
+          <h3 class="font-display font-bold text-base text-ink mb-1.5">Studierende & Lernende</h3>
+          <p class="text-xs sm:text-sm text-bodytext leading-relaxed">
+            Komplexe Skripte herunterbrechen (<span class="font-mono text-accent">/ELI15</span>), Lernkarten bauen (<span class="font-mono text-accent">/FLASHCARDS</span>) oder Prüfungsfragen simulieren (<span class="font-mono text-accent">/EXAMPREDICT</span>).
+          </p>
+        </div>
+
+        <div class="bg-chip/80 border border-line rounded-xl p-5">
+          <div class="text-2xl mb-2">🎨</div>
+          <h3 class="font-display font-bold text-base text-ink mb-1.5">Creator & Selbstständige</h3>
+          <p class="text-xs sm:text-sm text-bodytext leading-relaxed">
+            Starke Einstiegssätze schreiben (<span class="font-mono text-accent">/OPENHARD</span>) und beeindruckende Visuals generieren (<span class="font-mono text-accent">/XRAY</span>, <span class="font-mono text-accent">/ISOMETRIC</span>, <span class="font-mono text-accent">/PRODUCTSHOT</span>).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. GRATIS LEAD-MAGNET (20 TOP-CODES SPICKZETTEL) -->
+  <section id="gratis-probe" class="max-w-5xl mx-auto px-4 py-12">
+    <div class="bg-gradient-to-br from-panel to-chip border border-line rounded-2xl p-6 sm:p-10 grid md:grid-cols-12 gap-8 items-center">
+      <div class="md:col-span-7 space-y-3">
+        <span class="inline-block font-mono text-xs uppercase tracking-widest text-xraycyan bg-xraybg border border-[#2E5577] px-3 py-1 rounded">
+          KOSTENLOSE KOSTPROBE · 0 €
+        </span>
+        <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink">
+          Erst ausprobieren? Hol dir die „20 Top-Codes“ als 1-Seiten-Spickzettel.
+        </h2>
+        <p class="text-sm text-bodytext leading-relaxed">
+          Trag deine E-Mail-Adresse ein und teste die 20 beliebtesten Text- und Visual-Codes sofort kostenlos in ChatGPT, Claude oder Midjourney. Jederzeit mit einem Klick abbestellbar.
+        </p>
+      </div>
+
+      <div class="md:col-span-5">
+        <form onsubmit="handleLeadSubmit(event)" class="bg-navy/90 border border-line rounded-xl p-5 space-y-3">
+          <label for="lead-email" class="block font-mono text-xs text-labelgray uppercase tracking-wider">DEINE E-MAIL-ADRESSE</label>
+          <input type="email" id="lead-email" required placeholder="name@beispiel.de" class="w-full bg-chip border border-line focus:border-accent focus:outline-none rounded-lg px-4 py-3 text-sm text-ink placeholder-labelgray" />
+          <button type="submit" class="w-full bg-chiptag hover:bg-accent hover:text-navy border border-accent/50 text-accent font-display font-bold text-sm py-3.5 px-4 rounded-lg transition">
+            Gratis-Spickzettel anfordern →
+          </button>
+          <p id="lead-feedback" class="hidden text-xs text-xraycyan font-mono pt-1"></p>
+          <p class="text-[11px] text-labelgray leading-snug">
+            Kein Spam. Mit dem Absenden stimmst du dem Erhalt des PDF-Spickzettels sowie gelegentlichen KI-Tipps von tedigital zu.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7.5 ÜBER DEN AUTOR & GEPRÜFTE ZERTIFIZIERUNGEN (TRUST-BUILDER) -->
+  <section id="autor" class="max-w-5xl mx-auto px-4 py-12">
+    <div class="bg-panel border border-line rounded-2xl p-6 sm:p-10">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 mb-6 border-b border-line/70">
+        <div>
+          <div class="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-1.5">04 — GEPRÜFTE EXPERTISE</div>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink">Entwickelt aus der Praxis, nicht aus dem Hype</h2>
+          <p class="text-sm text-bodytext mt-1.5 max-w-2xl">
+            Hinter <strong class="text-ink">tedigital</strong> steht <strong class="text-ink">Torre Ehlers</strong>. Alle 200 KI-Codes basieren auf fundierten Prompt-Engineering-Prinzipien und intensiven Tests across ChatGPT, Claude &amp; modernen Bild-KIs.
+          </p>
+        </div>
+        <div class="shrink-0 flex items-center gap-2 bg-chip border border-line px-3.5 py-2 rounded-lg">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span class="font-mono text-xs text-ink">Zertifiziert &amp; verifizierbar</span>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+        <!-- Zertifikat 1: Google AI Professional Certificate -->
+        <div class="bg-chip/90 border border-line hover:border-accent/50 rounded-xl p-5 flex flex-col justify-between transition">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-white/95 flex items-center justify-center shrink-0 shadow-sm">
+              <svg viewBox="0 0 24 24" class="w-7 h-7" aria-hidden="true">
+                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17Z"/>
+                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24Z"/>
+                <path fill="#FBBC05" d="M5.28 14.24c-.24-.72-.38-1.49-.38-2.24s.14-1.52.38-2.24V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.99-3.14Z"/>
+                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.99 3.14c.95-2.85 3.6-4.96 6.72-4.96Z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-mono text-[11px] text-accent uppercase tracking-wider">GOOGLE CAREER CERTIFICATES · COURSERA</div>
+              <h3 class="font-display font-bold text-base sm:text-lg text-ink mt-0.5">Google AI Professional Certificate</h3>
+              <p class="text-xs text-bodytext mt-1.5 leading-relaxed">
+                8-teiliges Fachprogramm für KI-Grundlagen, Brainstorming, Recherche, Kommunikation, Content-Erstellung, Datenanalyse und KI-Workflows.
+              </p>
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-t border-line/70 flex items-center justify-between text-xs font-mono">
+            <span class="text-labelgray">Ausgestellt: Nov 2026</span>
+            <a href="https://coursera.org/verify/professional-cert/LU497LQ1QI52" target="_blank" rel="noopener noreferrer" class="text-xraycyan hover:text-accent transition">
+              Zertifikat prüfen ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Zertifikat 2: Vanderbilt University -->
+        <div class="bg-chip/90 border border-line hover:border-accent/50 rounded-xl p-5 flex flex-col justify-between transition">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-[#1C1C1C] border border-[#CFAE70]/50 flex items-center justify-center shrink-0">
+              <span class="font-serif font-bold text-2xl text-[#CFAE70]">V</span>
+            </div>
+            <div>
+              <div class="font-mono text-[11px] text-accent uppercase tracking-wider">VANDERBILT UNIVERSITY · DR. JULES WHITE</div>
+              <h3 class="font-display font-bold text-base sm:text-lg text-ink mt-0.5">Prompt Engineering for ChatGPT</h3>
+              <p class="text-xs text-bodytext mt-1.5 leading-relaxed">
+                Akademisch fundierte Spezialisierung auf effektive Prompt-Muster, strukturierte Ausgaben und präzise Steuerung großer Sprachmodelle.
+              </p>
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-t border-line/70 flex items-center justify-between text-xs font-mono">
+            <span class="text-labelgray">Ausgestellt: 17.11.2026</span>
+            <a href="https://coursera.org/verify/12KQTALKYOZF" target="_blank" rel="noopener noreferrer" class="text-xraycyan hover:text-accent transition">
+              Zertifikat prüfen ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. ANGEBOT & PREIS-BOX -->
+  <section id="angebot" class="max-w-4xl mx-auto px-4 py-16">
+    <div class="bg-panel border-2 border-accent rounded-2xl p-6 sm:p-10 shadow-2xl relative">
+      <div class="absolute -top-3.5 left-6 sm:left-10 bg-accent text-navy font-mono font-bold text-xs uppercase tracking-widest px-3.5 py-1 rounded">
+        LAUNCH-ANGEBOT · NUR 7 TAGE GÜLTIG
+      </div>
+
+      <div class="grid md:grid-cols-12 gap-8 items-center pt-2">
+        <div class="md:col-span-7 space-y-4">
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-ink">
+            200 KI-Codes – Das komplette Workbook
+          </h2>
+          <p class="text-sm text-bodytext">
+            Sofort einsatzbereit als übersichtliches Nachschlagewerk für deinen Schreibtisch und Bildschirm.
+          </p>
+
+          <ul class="space-y-2.5 text-sm text-ink pt-1">
+            <li class="flex items-start gap-2.5">
+              <span class="text-accent font-bold">✓</span>
+              <span><strong>Alle 200 Codes durchnummeriert (001–200):</strong> 110 Text-Codes & 90 Visual-Codes in 11 Kategorien</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-accent font-bold">✓</span>
+              <span><strong>23 fertige Kombi-Rezepte:</strong> Für Arbeit, Studium & Bildgenerierung</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-accent font-bold">✓</span>
+              <span><strong>Die 5 Kombi-Regeln & Konflikt-Matrix:</strong> Welche Codes harmonieren und was sich beißt</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-accent font-bold">✓</span>
+              <span><strong>Beide PDF-Versionen inklusive:</strong> Dark Mode („zum Aufhängen“) + White Mode („zum Ausdrucken“)</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-5 bg-chip border border-line rounded-xl p-6 text-center space-y-4">
+          <div class="font-mono text-xs text-labelgray uppercase tracking-widest">EINMALZAHLUNG · KEIN ABO</div>
+          <div>
+            <span class="text-labelgray line-through font-display text-lg mr-2">19,95 €</span>
+            <span class="font-display font-extrabold text-4xl sm:text-5xl text-ink">14,95 €</span>
+            <div class="text-xs text-labelgray mt-1">inkl. gesetzl. MwSt.</div>
+          </div>
+
+          <a href="#digistore24-checkout-placeholder" onclick="handleCheckoutClick(event)" class="block w-full bg-accent hover:bg-accenthover text-navy font-display font-bold text-base py-4 px-5 rounded-lg shadow-lg shadow-accent/25 transition transform hover:-translate-y-0.5">
+            Jetzt kaufen & herunterladen
+          </a>
+
+          <div class="pt-2 border-t border-line/70 space-y-1.5">
+            <div class="font-mono text-[11px] text-xraycyan">⚡ Sofort-Download als PDF nach Kauf</div>
+            <div class="text-[11px] text-labelgray">
+              Sichere Zahlung über <strong>Digistore24</strong>:<br />
+              PayPal · Kreditkarte · Klarna · SEPA
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FAQ AKKORDEON -->
+  <section id="faq" class="max-w-3xl mx-auto px-4 py-12">
+    <div class="mb-8 text-center">
+      <div class="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-2">05 — HÄUFIGE FRAGEN</div>
+      <h2 class="font-display font-bold text-3xl text-ink">Noch Fragen vor dem Start?</h2>
+    </div>
+
+    <div class="space-y-3" id="faq-container">
+      <!-- FAQ 1 -->
+      <div class="bg-panel border border-line rounded-xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-display font-bold text-ink text-sm sm:text-base">
+          <span>In welchen KI-Tools funktionieren die Codes?</span>
+          <span class="font-mono text-accent text-xl transition-transform">+</span>
+        </button>
+        <div class="faq-answer hidden px-6 pb-5 text-sm text-bodytext leading-relaxed border-t border-line/50 pt-3">
+          Die <strong>110 Text-Codes</strong> funktionieren in allen gängigen KI-Chats wie ChatGPT, Claude, Google Gemini, Microsoft Copilot oder Perplexity. Die <strong>90 Visual-Codes</strong> sind speziell für Bild-KIs wie Midjourney, DALL-E, Flux, Ideogram oder Adobe Firefly konzipiert.
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="bg-panel border border-line rounded-xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-display font-bold text-ink text-sm sm:text-base">
+          <span>Gibt es wirklich kein Geheimmenü – wie funktionieren die Codes?</span>
+          <span class="font-mono text-accent text-xl transition-transform">+</span>
+        </button>
+        <div class="faq-answer hidden px-6 pb-5 text-sm text-bodytext leading-relaxed border-t border-line/50 pt-3">
+          Wir spielen mit offenen Karten: Es gibt kein verstecktes Entwickler-Menü. KI-Modelle wurden mit riesigen Mengen an Internettexten, Fachforen und Design-Datenbanken trainiert. Kürzel wie <span class="font-mono text-accent">/ELI5</span> oder <span class="font-mono text-accent">/EXPLODEDVIEW</span> rufen diese tief verankerten Konzepte sofort ab – wie ein stark komprimierter Profi-Prompt.
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="bg-panel border border-line rounded-xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-display font-bold text-ink text-sm sm:text-base">
+          <span>Muss ich Software oder ein Plugin installieren?</span>
+          <span class="font-mono text-accent text-xl transition-transform">+</span>
+        </button>
+        <div class="faq-answer hidden px-6 pb-5 text-sm text-bodytext leading-relaxed border-t border-line/50 pt-3">
+          Nein, überhaupt nichts. Du tippst oder kopierst den jeweiligen Code einfach mit einem Schrägstrich (<span class="font-mono text-accent">/</span>) vor oder hinter deine normale Anfrage in das Eingabefeld deiner KI.
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="bg-panel border border-line rounded-xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-display font-bold text-ink text-sm sm:text-base">
+          <span>Was ist der Unterschied zwischen den beiden PDF-Versionen?</span>
+          <span class="font-mono text-accent text-xl transition-transform">+</span>
+        </button>
+        <div class="faq-answer hidden px-6 pb-5 text-sm text-bodytext leading-relaxed border-t border-line/50 pt-3">
+          Du bekommst beide 13-seitigen A4-PDFs im Paket: Die <strong>Dark-Version</strong> im edlen Navy-Blueprint-Look schont die Augen am Monitor oder Tablet. Die <strong>Druck-Version</strong> hat einen reinweißen Hintergrund, damit du dir deine Lieblingsseiten oder das gesamte Workbook ohne hohen Tintenverbrauch ausdrucken und an die Wand hängen kannst.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FOOTER -->
+  <footer class="border-t border-line bg-chip/80 mt-12">
+    <div class="max-w-6xl mx-auto px-4 py-10">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-8 border-b border-line/60">
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-[5px] bg-accent flex items-center justify-center font-display font-extrabold text-navy text-xs">
+            td
+          </div>
+          <span class="font-display font-bold text-ink text-lg">tedigital</span>
+        </div>
+
+        <div class="flex flex-wrap gap-6 font-mono text-xs text-labelgray">
+          <button onclick="openModal('impressum')" class="hover:text-ink transition">Impressum</button>
+          <button onclick="openModal('datenschutz')" class="hover:text-ink transition">Datenschutzerklärung</button>
+          <a href="#angebot" class="hover:text-ink transition">Workbook sichern</a>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row justify-between gap-4 text-xs text-labelgray">
+        <p>© 2026 Torre Ehlers · tedigital. Alle Rechte vorbehalten.</p>
+        <p>Die Abbuchung und Bestellabwicklung erfolgt sicher durch Digistore24.com.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL FÜR IMPRESSUM / DATENSCHUTZ / CHECKOUT-HINWEIS -->
+  <div id="info-modal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-panel border border-line rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-labelgray hover:text-ink font-mono text-lg px-2 py-1">✕</button>
+      <div id="modal-content" class="text-sm text-bodytext space-y-3 leading-relaxed"></div>
+    </div>
+  </div>
+
+  <script>
+    // Vorher/Nachher Beispiele Daten
+    const examples = [
+      {
+        beforeWords: "62 Wörter",
+        beforeText: "„Bitte lies dir den folgenden sehr komplexen Fachtext genau durch. Ich möchte, dass du zuerst die allerwichtigsten Kernaussagen auf das Wesentliche zusammenfasst, ohne wichtige Fakten wegzulassen. Danach erkläre mir den Inhalt bitte noch einmal so einfach, klar und verständlich, dass ihn selbst ein fünfjähriges Kind ohne Vorwissen sofort begreifen kann. Verzichte dabei komplett auf komplizierte Fremdwörter.“",
+        afterWords: "2 Kürzel",
+        afterSubject: "[Fachtext einfügen]",
+        afterCode: "/tldr /eli5",
+        afterDesc: "<strong class='text-accent'>Was passiert:</strong> Die KI kürzt den Text zuerst auf das Wesentliche und erklärt ihn direkt danach in kinderleichter Sprache ohne Fachchinesisch."
+      },
+      {
+        beforeWords: "48 Wörter",
+        beforeText: "„Überarbeite meinen folgenden E-Mail-Entwurf so, dass er deutlich professioneller und geschäftsmäßiger klingt, als würde er an einen wichtigen Kunden oder Vorgesetzten gehen. Behalte alle wichtigen Informationen bei, aber streiche unnötige Füllwörter und kürze den gesamten Text um ungefähr zwanzig Prozent, damit er knackig bleibt.“",
+        afterWords: "3 Kürzel",
+        afterSubject: "[Dein E-Mail-Entwurf]",
+        afterCode: "/rewrite /formal /cut20",
+        afterDesc: "<strong class='text-accent'>Was passiert:</strong> Der Entwurf wird neu formuliert, wechselt in einen souveränen Business-Ton und wird um rund 20 Prozent gestrafft – bei gleichem Inhalt."
+      },
+      {
+        beforeWords: "54 Wörter",
+        beforeText: "„Erstelle eine hochdetaillierte technische Illustration einer modernen Siebträgermaschine. Zerlege die Maschine in alle ihre einzelnen Bauteile, die sauber geordnet in der Luft schweben, und stelle das Ganze im Stil eines klassischen technischen Konstruktionsplans mit feinen weißen Linien auf einem tiefblauen Hintergrund dar.“",
+        afterWords: "2 Kürzel",
+        afterSubject: "Siebträgermaschine",
+        afterCode: "/explodedview /blueprint",
+        afterDesc: "<strong class='text-accent'>Was passiert:</strong> Deine Bild-KI zerlegt das Objekt in schwebende Einzelteile und rendert sie als präzisen Bauplan in weißen Linien auf blauem Grund."
+      }
+    ];
+
+    let currentExampleIndex = 0;
+
+    function switchExample(index) {
+      currentExampleIndex = index;
+      const ex = examples[index];
+      document.getElementById('before-words').textContent = ex.beforeWords;
+      document.getElementById('before-text').textContent = ex.beforeText;
+      document.getElementById('after-words').textContent = ex.afterWords;
+      document.getElementById('after-subject').textContent = ex.afterSubject;
+      document.getElementById('after-code').textContent = ex.afterCode;
+      document.getElementById('after-desc').innerHTML = ex.afterDesc;
+
+      document.querySelectorAll('.example-tab').forEach((btn, i) => {
+        if (i === index) {
+          btn.className = "example-tab bg-accent text-navy font-mono text-xs font-bold px-4 py-2.5 rounded-md transition";
+        } else {
+          btn.className = "example-tab bg-panel border border-line text-ink hover:border-accent/60 font-mono text-xs font-bold px-4 py-2.5 rounded-md transition";
+        }
+      });
+    }
+
+    // Code kopieren (iFrame-sicher via execCommand)
+    function copyActiveCode() {
+      const codeText = examples[currentExampleIndex].afterCode;
+      const tempInput = document.createElement('textarea');
+      tempInput.value = codeText;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = "Kopiert ✓";
+      btn.classList.add("text-accent");
+      setTimeout(() => {
+        btn.textContent = "Kopieren";
+        btn.classList.remove("text-accent");
+      }, 1800);
+    }
+
+    // FAQ Akkordeon
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('span:last-child');
+      const isHidden = answer.classList.contains('hidden');
+      
+      document.querySelectorAll('.faq-answer').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('#faq-container button span:last-child').forEach(ic => ic.textContent = '+');
+
+      if (isHidden) {
+        answer.classList.remove('hidden');
+        icon.textContent = '−';
+      }
+    }
+
+    // Gratis Lead-Magnet Formular (Demo-Handler)
+    function handleLeadSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('lead-email').value;
+      const feedback = document.getElementById('lead-feedback');
+      feedback.classList.remove('hidden');
+      feedback.innerHTML = `✓ Test-Modus: Der 1-Seiten-Spickzettel wurde für <strong>${email}</strong> vorgemerkt (Newsletter-Tool-Verknüpfung folgt).`;
+      document.getElementById('lead-email').value = '';
+    }
+
+    // Platzhalter-Hinweis für Digistore24-Checkout
+    function handleCheckoutClick(e) {
+      e.preventDefault();
+      openModal('checkout');
+    }
+
+    // Modal Steuerung
+    function openModal(type) {
+      const modal = document.getElementById('info-modal');
+      const content = document.getElementById('modal-content');
+      
+      if (type === 'impressum') {
+        content.innerHTML = `
+          <h3 class="font-display font-bold text-xl text-ink">Impressum</h3>
+          <p class="font-mono text-xs text-accent">ANGABEN GEMÄSS § 5 DDG</p>
+          <p><strong class="text-ink">Anbieter:</strong><br>Torre Ehlers<br>tedigital<br>Hamburgerstraße 214<br>28205 Bremen</p>
+          <p><strong class="text-ink">Kontakt:</strong><br>E-Mail: torre@tedigital.de</p>
+          <p class="text-xs text-labelgray pt-2 border-t border-line">Vervielfältigung, Weitergabe oder Weiterverkauf der digitalen Produkte, auch auszugsweise, ist ohne schriftliche Genehmigung nicht gestattet.</p>
+        `;
+      } else if (type === 'datenschutz') {
+        content.innerHTML = `
+          <h3 class="font-display font-bold text-xl text-ink">Datenschutzerklärung (Platzhalter)</h3>
+          <p>Verantwortlicher im Sinne der DSGVO ist Torre Ehlers, Hamburgerstraße 214, 28205 Bremen (torre@tedigital.de).</p>
+          <p>Beim Kauf über unseren Zahlungsdienstleister <strong>Digistore24 GmbH</strong> (St.-Godehard-Straße 32, 31139 Hildesheim) gelten ergänzend die Datenschutzbestimmungen von Digistore24.</p>
+          <p class="text-xs text-labelgray bg-chip p-3 rounded border border-line">Hinweis: Hier vor Livegang die vollständige DSGVO-Datenschutzerklärung (inkl. Hosting & E-Mail-Provider) einfügen.</p>
+        `;
+      } else if (type === 'checkout') {
+        content.innerHTML = `
+          <div class="font-mono text-xs text-accent uppercase tracking-wider">DIGISTORE24 CHECKOUT-PLATZHALTER</div>
+          <h3 class="font-display font-bold text-xl text-ink">Weiterleitung zu Digistore24</h3>
+          <p>Dieser Button ist aktuell mit dem Platzhalter <code class="bg-chip px-1.5 py-0.5 rounded text-xraycyan">#digistore24-checkout-placeholder</code> verknüpft.</p>
+          <p class="text-xs text-labelgray">Sobald dein Produkt auf Digistore24 freigeschaltet ist, ersetzen wir diesen Link durch deine offizielle Digistore24-Bestellformular-URL (inkl. Order-Bump „30 Kombi-Rezepte“ für 7 € und Upsell „Bildcodes Pro“ für 17 €).</p>
+        `;
+      }
+      modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('info-modal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
