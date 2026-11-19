@@ -129,7 +129,7 @@ export function WorkbookBundleMockup() {
                     200 KI-Codes
                   </div>
                   <div className="font-sans font-semibold text-[10px] sm:text-xs text-white leading-snug mt-1">
-                    – Das Workbook für ChatGPT, Claude &amp; Co.
+                    : Das Kürzel-Nachschlagewerk für ChatGPT, Claude und Co.
                   </div>
                 </div>
 
@@ -262,7 +262,7 @@ export function WorkbookBundleMockup() {
 
         {/* Interaktiver PDF-Ansicht Umschalter unter dem Mockup */}
         <div className="mt-3 pt-2.5 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-slate-600">
-          <span>200 KI-Codes · Dark &amp; Print PDF inklusive</span>
+          <span>200 KI-Codes · PDF-Paket (Dark &amp; Print inklusive)</span>
           <div
             className="inline-flex items-center gap-1 p-0.5 bg-slate-200/80 rounded-md"
             role="group"

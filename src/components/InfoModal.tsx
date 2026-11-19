@@ -99,8 +99,8 @@ export function InfoModal({ modalType, submittedEmail, onClose }: InfoModalProps
             </p>
             <p>
               Beim Kauf über unseren Zahlungsdienstleister{' '}
-              <strong className="text-ink">Digistore24 GmbH</strong> (St.-Godehard-Straße 32,
-              31139 Hildesheim) gelten ergänzend die Datenschutzbestimmungen von Digistore24.
+              <strong className="text-ink">CopeCart</strong> gelten ergänzend die
+              Datenschutzbestimmungen von CopeCart.
             </p>
             <p className="text-xs text-labelgray bg-chip p-3.5 rounded-lg border border-line">
               Hinweis: Vor Produktivschaltung die vollständige DSGVO-Datenschutzerklärung (inkl.
@@ -112,20 +112,20 @@ export function InfoModal({ modalType, submittedEmail, onClose }: InfoModalProps
         {modalType === 'checkout' && (
           <div className="text-sm text-bodytext space-y-3 leading-relaxed">
             <div className="font-mono text-xs text-accent font-semibold">
-              Digistore24 Checkout-Vorschau
+              CopeCart Checkout-Vorschau
             </div>
             <h3 className="font-display font-bold text-xl text-ink">
-              Weiterleitung zu Digistore24
+              Weiterleitung zu CopeCart
             </h3>
             <p>
               Dieser Button ist aktuell mit dem Bestell-Platzhalter{' '}
               <code className="bg-chip px-1.5 py-0.5 rounded text-xraycyan font-mono text-xs">
-                #digistore24-checkout-placeholder
+                #copecart-checkout-placeholder
               </code>{' '}
               verknüpft.
             </p>
             <p className="text-xs text-labelgray bg-chip p-3.5 rounded-lg border border-line">
-              Sobald dein Produkt auf Digistore24 freigeschaltet ist, wird dieser Link durch deine
+              Sobald dein Produkt auf CopeCart freigeschaltet ist, wird dieser Link durch deine
               offizielle Bestellformular-URL ersetzt (inkl. Order-Bump „30 Kombi-Rezepte“ für 7 €
               und Upsell „Bildcodes Pro“ für 17 €).
             </p>

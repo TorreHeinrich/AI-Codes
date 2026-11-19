@@ -158,6 +158,6 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: 'Was ist der Unterschied zwischen den beiden PDF-Versionen?',
     answer:
-      'Du bekommst beide 13-seitigen A4-PDFs im Paket: Die Dark-Version im Navy-Blueprint-Look schont die Augen am Monitor oder Tablet. Die Druck-Version hat einen reinweißen Hintergrund, damit du dir deine Lieblingsseiten oder das gesamte Workbook ohne hohen Tintenverbrauch ausdrucken kannst.',
+      'Du bekommst beide 13-seitigen A4-PDFs im Paket: Die Dark-Version im Navy-Blueprint-Look schont die Augen am Monitor oder Tablet. Die Druck-Version hat einen reinweißen Hintergrund, damit du dir deine Lieblingsseiten oder das gesamte Nachschlagewerk ohne hohen Tintenverbrauch ausdrucken kannst.',
   },
 ];

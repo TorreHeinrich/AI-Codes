@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import {
   ArrowRight,
   Briefcase,
@@ -30,22 +30,6 @@ export default function App() {
   const [leadError, setLeadError] = useState<string | null>(null);
   const [submittedEmail, setSubmittedEmail] = useState<string | null>(null);
   const [modalType, setModalType] = useState<ModalType>(null);
-
-  // Live 7-day launch countdown in tabular numerals
-  const [secondsLeft, setSecondsLeft] = useState(6 * 86400 + 23 * 3600 + 48 * 60 + 19);
-
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setSecondsLeft((prev) => (prev > 0 ? prev - 1 : 0));
-    }, 1000);
-    return () => window.clearInterval(interval);
-  }, []);
-
-  const days = Math.floor(secondsLeft / 86400);
-  const hours = Math.floor((secondsLeft % 86400) / 3600);
-  const mins = Math.floor((secondsLeft % 3600) / 60);
-  const secs = secondsLeft % 60;
-  const pad = (n: number) => String(n).padStart(2, '0');
 
   const activeExample = COMPARISON_EXAMPLES[activeExampleIdx];
 
@@ -79,24 +63,17 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* 1. COMPACT STICKY LAUNCH BANNER */}
+      {/* 1. COMPACT STICKY EINFÜHRUNGSPREIS BANNER */}
       <div className="bg-panel/95 border-b border-line sticky top-0 z-40 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3 text-xs sm:text-sm">
           <div className="flex items-center gap-2 min-w-0">
-            <span className="font-mono text-accent font-bold shrink-0">Launch-Angebot:</span>
+            <span className="font-mono text-accent font-bold shrink-0">EINFÜHRUNGSPREIS:</span>
             <span className="text-ink font-medium truncate">
-              7 Tage nur <strong className="text-white">14,95 €</strong>{' '}
-              <span className="line-through text-labelgray">statt 19,95 €</span>
+              Jetzt zum Start für <strong className="text-white">14,95 €</strong> sichern{' '}
+              <span className="text-labelgray">(regulär demnächst 19,95 €)</span>
             </span>
           </div>
           <div className="flex items-center gap-3 shrink-0">
-            <span
-              className="hidden sm:inline-flex items-center gap-1.5 font-mono text-xs tabular-nums bg-chip border border-line px-2.5 py-1 rounded text-xraycyan whitespace-nowrap"
-              aria-label="Verbleibende Angebotszeit"
-            >
-              <Clock className="w-3.5 h-3.5" aria-hidden="true" />
-              {pad(days)}T : {pad(hours)}S : {pad(mins)}M : {pad(secs)}s
-            </span>
             <a
               href="#angebot"
               className="bg-accent hover:bg-accenthover text-navy font-display font-bold text-xs px-3.5 py-1.5 rounded transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-white"
@@ -153,7 +130,7 @@ export default function App() {
           href="#angebot"
           className="font-mono text-xs font-semibold text-accent border border-accent/40 hover:bg-accent/10 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shrink-0"
         >
-          Workbook · 14,95 €
+          PDF-Paket · 14,95 €
         </a>
       </header>
 
@@ -197,7 +174,7 @@ export default function App() {
                   onClick={() => setModalType('checkout')}
                   className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accenthover text-navy font-display font-bold text-base px-6 py-4 rounded-lg shadow-lg shadow-accent/20 transition-transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer"
                 >
-                  <span>Jetzt Workbook sichern – 14,95 €</span>
+                  <span>Jetzt PDF-Paket sichern – 14,95 €</span>
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </button>
                 <a
@@ -213,7 +190,7 @@ export default function App() {
                 <span aria-hidden="true">·</span>
                 <span>Dunkle &amp; helle Druck-Version</span>
                 <span aria-hidden="true">·</span>
-                <span>Geprüfte Prompt-Expertise (Google &amp; Vanderbilt University)</span>
+                <span>Geprüfte KI-Expertise (WBS Training, Google &amp; Vanderbilt)</span>
               </div>
             </div>
 
@@ -707,10 +684,42 @@ export default function App() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-5">
-              {/* Zertifikat 1: Google AI Professional Certificate */}
+            <div className="grid lg:grid-cols-3 gap-5">
+              {/* Zertifikat 1: WBS TRAINING AG */}
               <div className="bg-chip/90 border border-line hover:border-accent/50 rounded-xl p-5 flex flex-col justify-between transition-colors">
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-12 h-12 rounded-xl bg-white/95 flex items-center justify-center shrink-0">
+                    <span className="font-display font-extrabold text-xs tracking-tight text-[#0A1B31]">
+                      WBS
+                    </span>
+                  </div>
+                  <div>
+                    <div className="font-mono text-[11px] text-accent font-semibold">
+                      WBS TRAINING AG
+                    </div>
+                    <h3 className="font-display font-bold text-base sm:text-lg text-ink mt-0.5">
+                      KI Medien- und Content Gestalter
+                    </h3>
+                    <p className="text-xs text-bodytext mt-1.5 leading-relaxed">
+                      Umfassende staatlich anerkannte Weiterbildung für KI-gestützte Texterstellung,
+                      Bildbearbeitung, Video-Editing, Website-/Shop-Entwicklung, Social Media
+                      Marketing sowie Recht &amp; Ethik in der KI-Mediengestaltung.
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-4 pt-3 border-t border-line/70 space-y-1 text-[11px] font-mono">
+                  <div className="text-ink font-semibold">
+                    Abschlussnote 1 (sehr gut · 98 %) · 1.210 Unterrichtsstunden
+                  </div>
+                  <div className="text-labelgray">
+                    Ausgestellt: 29.04.2026 · AZAV- und DIN EN ISO 9001:2015-zertifiziert
+                  </div>
+                </div>
+              </div>
+
+              {/* Zertifikat 2: Google AI Professional Certificate */}
+              <div className="bg-chip/90 border border-line hover:border-accent/50 rounded-xl p-5 flex flex-col justify-between transition-colors">
+                <div className="flex items-start gap-3.5">
                   <div className="w-12 h-12 rounded-xl bg-white/95 flex items-center justify-center shrink-0">
                     <svg viewBox="0 0 24 24" className="w-7 h-7" aria-hidden="true">
                       <path
@@ -758,9 +767,9 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Zertifikat 2: Vanderbilt University */}
+              {/* Zertifikat 3: Vanderbilt University */}
               <div className="bg-chip/90 border border-line hover:border-accent/50 rounded-xl p-5 flex flex-col justify-between transition-colors">
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-3.5">
                   <div className="w-12 h-12 rounded-xl bg-[#1C1C1C] border border-[#CFAE70]/50 flex items-center justify-center shrink-0">
                     <span className="font-display font-extrabold text-xl text-[#CFAE70]">V</span>
                   </div>
@@ -800,10 +809,10 @@ export default function App() {
             <div className="grid md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-7 space-y-4">
                 <div className="font-mono text-xs text-accent font-bold">
-                  Launch-Angebot · Nur 7 Tage gültig
+                  Einführungspreis · Jetzt zum Start sichern
                 </div>
                 <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-ink">
-                  200 KI-Codes – Das komplette Workbook
+                  200 KI-Codes: Das Kürzel-Nachschlagewerk für ChatGPT, Claude und Co.
                 </h2>
                 <p className="text-sm text-bodytext">
                   Sofort einsatzbereit als übersichtliches Nachschlagewerk für deinen Schreibtisch
@@ -844,16 +853,15 @@ export default function App() {
 
               <div className="md:col-span-5 bg-chip border border-line rounded-xl p-6 text-center space-y-4">
                 <div className="font-mono text-xs text-labelgray font-semibold">
-                  Einmalzahlung · Kein Abo
+                  EINFÜHRUNGSPREIS · EINMALZAHLUNG
                 </div>
                 <div className="tabular-nums">
-                  <span className="text-labelgray line-through font-display text-lg mr-2">
-                    19,95 €
-                  </span>
-                  <span className="font-display font-extrabold text-4xl sm:text-5xl text-ink">
+                  <div className="font-display font-extrabold text-4xl sm:text-5xl text-ink">
                     14,95 €
-                  </span>
-                  <div className="text-xs text-labelgray mt-1">inkl. gesetzl. MwSt.</div>
+                  </div>
+                  <div className="text-xs text-labelgray mt-1.5">
+                    regulär demnächst 19,95 € · inkl. gesetzl. MwSt.
+                  </div>
                 </div>
 
                 <button
@@ -869,8 +877,8 @@ export default function App() {
                     Sofort-Download als PDF nach Kauf
                   </div>
                   <div className="text-[11px] text-labelgray leading-relaxed">
-                    Sichere Zahlung über <strong>Digistore24</strong>: PayPal · Kreditkarte ·
-                    Klarna · SEPA
+                    Sichere Zahlung über <strong>CopeCart</strong>: PayPal · Kreditkarte · Klarna ·
+                    SEPA
                   </div>
                 </div>
               </div>
@@ -948,14 +956,14 @@ export default function App() {
                 href="#angebot"
                 className="hover:text-ink transition-colors whitespace-nowrap"
               >
-                Workbook sichern
+                PDF-Paket sichern
               </a>
             </div>
           </div>
 
           <div className="pt-6 flex flex-col sm:flex-row justify-between gap-4 text-xs text-labelgray">
             <p>© 2026 Torre Ehlers · tedigital. Alle Rechte vorbehalten.</p>
-            <p>Die Abbuchung und Bestellabwicklung erfolgt sicher durch Digistore24.com.</p>
+            <p>Die Abbuchung und Bestellabwicklung erfolgt sicher durch CopeCart.</p>
           </div>
         </div>
       </footer>
