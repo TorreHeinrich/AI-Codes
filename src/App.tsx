@@ -62,7 +62,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-clip w-full max-w-full">
       {/* 1. COMPACT STICKY EINFÜHRUNGSPREIS BANNER */}
       <div className="bg-panel/95 border-b border-line sticky top-0 z-40 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3 text-xs sm:text-sm">
@@ -85,7 +85,7 @@ export default function App() {
       </div>
 
       {/* 2. TOP BAR (3-ZONE CONTRACT) */}
-      <header className="max-w-6xl w-full mx-auto px-4 pt-6 pb-4 flex items-center justify-between gap-8">
+      <header className="max-w-6xl w-full mx-auto px-4 pt-6 pb-4 flex items-center justify-between gap-4 sm:gap-8">
         <a
           href="#"
           className="inline-flex items-center gap-2.5 whitespace-nowrap shrink-0 group focus-visible:outline-2 focus-visible:outline-accent rounded"
@@ -134,12 +134,12 @@ export default function App() {
         </a>
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-hidden">
         {/* 3. HERO BEREICH */}
         <section className="max-w-6xl mx-auto px-4 pt-8 pb-16 md:pt-12 md:pb-24">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-10 items-center">
             {/* Linke Spalte: Copy & CTA */}
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-6 space-y-6 min-w-0">
               <p className="font-mono text-xs tracking-wide text-accent font-semibold">
                 Für ChatGPT, Claude, Gemini &amp; Bild-KIs
               </p>
@@ -172,7 +172,7 @@ export default function App() {
                 <button
                   type="button"
                   onClick={() => setModalType('checkout')}
-                  className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accenthover text-navy font-display font-bold text-base px-6 py-4 rounded-lg shadow-lg shadow-accent/20 transition-transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accenthover text-navy font-display font-bold text-sm sm:text-base px-4 sm:px-6 py-4 rounded-lg shadow-lg shadow-accent/20 transition-transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer"
                 >
                   <span>Jetzt PDF-Paket sichern – 14,95 €</span>
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -195,7 +195,7 @@ export default function App() {
             </div>
 
             {/* Rechte Spalte: Produkt-Mockup */}
-            <div className="lg:col-span-6">
+            <div className="lg:col-span-6 min-w-0">
               <WorkbookBundleMockup />
             </div>
           </div>
@@ -247,19 +247,19 @@ export default function App() {
           </div>
 
           {/* Vergleichs-Karten */}
-          <div className="grid md:grid-cols-2 gap-6 items-stretch">
+          <div className="grid md:grid-cols-2 gap-6 items-stretch min-w-0 w-full max-w-full">
             {/* Vorher */}
-            <div className="bg-panel/80 border border-line rounded-xl p-6 sm:p-8 flex flex-col justify-between">
-              <div>
+            <div className="min-w-0 w-full max-w-full bg-panel/80 border border-line rounded-xl p-6 sm:p-8 flex flex-col justify-between">
+              <div className="min-w-0">
                 <div className="flex items-center justify-between gap-2 mb-5 pb-3 border-b border-line/60">
                   <span className="font-mono text-xs font-semibold text-red-300">
                     Vorher · Ohne Codes
                   </span>
-                  <span className="font-mono text-xs tabular-nums text-labelgray">
+                  <span className="font-mono text-xs tabular-nums text-labelgray shrink-0">
                     {activeExample.beforeWords}
                   </span>
                 </div>
-                <p className="text-sm sm:text-base text-bodytext leading-relaxed italic">
+                <p className="text-sm sm:text-base text-bodytext leading-relaxed italic break-words">
                   {activeExample.beforeText}
                 </p>
               </div>
@@ -270,19 +270,19 @@ export default function App() {
             </div>
 
             {/* Nachher */}
-            <div className="bg-panel border border-accent/70 rounded-xl p-6 sm:p-8 flex flex-col justify-between">
-              <div>
+            <div className="min-w-0 w-full max-w-full bg-panel border border-accent/70 rounded-xl p-6 sm:p-8 flex flex-col justify-between">
+              <div className="min-w-0">
                 <div className="flex items-center justify-between gap-2 mb-5 pb-3 border-b border-line/60">
                   <span className="font-mono text-xs font-bold text-accent">
                     Nachher · Mit KI-Codes
                   </span>
-                  <span className="font-mono text-xs tabular-nums text-accent font-bold">
+                  <span className="font-mono text-xs tabular-nums text-accent font-bold shrink-0">
                     {activeExample.afterWords}
                   </span>
                 </div>
 
-                <div className="bg-chip border border-line rounded-lg p-4 mb-4 flex items-center justify-between gap-3">
-                  <div className="font-mono text-sm sm:text-base overflow-x-auto whitespace-nowrap">
+                <div className="bg-chip border border-line rounded-lg p-3.5 sm:p-4 mb-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 min-w-0 w-full max-w-full">
+                  <div className="font-mono text-sm sm:text-base break-words whitespace-normal min-w-0 flex-1">
                     <span className="text-labelgray">›</span>
                     <span className="text-white ml-1.5">{activeExample.afterSubject}</span>
                     <span className="text-accent font-bold ml-2">{activeExample.afterCode}</span>
@@ -290,7 +290,7 @@ export default function App() {
                   <button
                     type="button"
                     onClick={() => handleCopy(activeExample.afterCode, 'comparison-copy')}
-                    className="shrink-0 inline-flex items-center gap-1.5 bg-panel hover:bg-line text-ink font-mono text-xs px-3 py-1.5 rounded border border-line transition-colors whitespace-nowrap cursor-pointer"
+                    className="shrink-0 w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-panel hover:bg-line text-ink font-mono text-xs px-3 py-2 sm:py-1.5 rounded border border-line transition-colors whitespace-nowrap cursor-pointer"
                   >
                     {copiedKey === 'comparison-copy' ? (
                       <>
@@ -306,7 +306,7 @@ export default function App() {
                   </button>
                 </div>
 
-                <p className="text-sm text-bodytext leading-relaxed">
+                <p className="text-sm text-bodytext leading-relaxed break-words">
                   <strong className="text-accent">Was passiert:</strong> {activeExample.afterDesc}
                 </p>
 
@@ -586,8 +586,8 @@ export default function App() {
 
         {/* 8. GRATIS LEAD-MAGNET */}
         <section id="gratis-probe" className="max-w-5xl mx-auto px-4 py-12">
-          <div className="bg-gradient-to-br from-panel to-chip border border-line rounded-2xl p-6 sm:p-10 grid md:grid-cols-12 gap-8 items-center">
-            <div className="md:col-span-7 space-y-3">
+          <div className="bg-gradient-to-br from-panel to-chip border border-line rounded-2xl p-5 sm:p-10 grid md:grid-cols-12 gap-8 items-center min-w-0 w-full max-w-full">
+            <div className="md:col-span-7 space-y-3 min-w-0">
               <div className="font-mono text-xs text-xraycyan font-semibold">
                 Kostenlose Kostprobe · 0 €
               </div>
@@ -601,11 +601,11 @@ export default function App() {
               </p>
             </div>
 
-            <div className="md:col-span-5">
+            <div className="md:col-span-5 min-w-0 w-full">
               <form
                 onSubmit={handleLeadSubmit}
                 noValidate
-                className="bg-navy/90 border border-line rounded-xl p-5 space-y-3"
+                className="bg-navy/90 border border-line rounded-xl p-4 sm:p-5 space-y-3 min-w-0 w-full max-w-full box-border"
               >
                 <label
                   htmlFor="lead-email"
@@ -622,7 +622,7 @@ export default function App() {
                     if (leadError) setLeadError(null);
                   }}
                   placeholder="name@beispiel.de"
-                  className="w-full bg-chip border border-line focus:border-accent focus:outline-none rounded-lg px-4 py-3 text-sm text-ink placeholder-labelgray"
+                  className="w-full min-w-0 bg-chip border border-line focus:border-accent focus:outline-none rounded-lg px-4 py-3 text-sm text-ink placeholder-labelgray"
                 />
                 {leadError && (
                   <p className="text-xs text-red-300 font-mono" role="alert">
@@ -631,7 +631,7 @@ export default function App() {
                 )}
                 <button
                   type="submit"
-                  className="w-full bg-chiptag hover:bg-accent hover:text-navy border border-accent/50 text-accent font-display font-bold text-sm py-3.5 px-4 rounded-lg transition-colors whitespace-nowrap cursor-pointer"
+                  className="w-full max-w-full bg-chiptag hover:bg-accent hover:text-navy border border-accent/50 text-accent font-display font-bold text-sm sm:text-base py-3.5 px-3 sm:px-5 rounded-lg transition-colors whitespace-normal lg:whitespace-nowrap text-center leading-tight cursor-pointer"
                 >
                   Gratis-Spickzettel anfordern
                 </button>
@@ -805,9 +805,9 @@ export default function App() {
 
         {/* 10. ANGEBOT & PREIS-BOX */}
         <section id="angebot" className="max-w-4xl mx-auto px-4 py-16">
-          <div className="bg-panel border-2 border-accent rounded-2xl p-6 sm:p-10 shadow-2xl relative">
-            <div className="grid md:grid-cols-12 gap-8 items-center">
-              <div className="md:col-span-7 space-y-4">
+          <div className="bg-panel border-2 border-accent rounded-2xl p-5 sm:p-10 shadow-2xl relative min-w-0 w-full max-w-full box-border">
+            <div className="grid md:grid-cols-12 gap-8 items-center min-w-0 w-full">
+              <div className="md:col-span-7 space-y-4 min-w-0">
                 <div className="font-mono text-xs text-accent font-bold">
                   Einführungspreis · Jetzt zum Start sichern
                 </div>
@@ -851,7 +851,7 @@ export default function App() {
                 </ul>
               </div>
 
-              <div className="md:col-span-5 bg-chip border border-line rounded-xl p-6 text-center space-y-4">
+              <div className="md:col-span-5 bg-chip border border-line rounded-xl py-6 px-4 sm:px-6 text-center space-y-4 w-full max-w-full min-w-0 box-border">
                 <div className="font-mono text-xs text-labelgray font-semibold">
                   EINFÜHRUNGSPREIS · EINMALZAHLUNG
                 </div>
@@ -867,7 +867,7 @@ export default function App() {
                 <button
                   type="button"
                   onClick={() => setModalType('checkout')}
-                  className="w-full bg-accent hover:bg-accenthover text-navy font-display font-bold text-base py-4 px-5 rounded-lg shadow-lg shadow-accent/25 transition-transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer"
+                  className="w-full max-w-full bg-accent hover:bg-accenthover text-navy font-display font-bold text-sm sm:text-base py-4 px-4 sm:px-5 rounded-lg shadow-lg shadow-accent/25 transition-transform hover:-translate-y-0.5 whitespace-normal lg:whitespace-nowrap text-center leading-tight cursor-pointer"
                 >
                   Jetzt kaufen &amp; herunterladen
                 </button>
