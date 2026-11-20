@@ -25,7 +25,7 @@ export default function App() {
   const [activeExampleIdx, setActiveExampleIdx] = useState(0);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [showSampleOutput, setShowSampleOutput] = useState(false);
-  const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
+  const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(null);
   const [leadEmail, setLeadEmail] = useState('');
   const [leadError, setLeadError] = useState<string | null>(null);
   const [submittedEmail, setSubmittedEmail] = useState<string | null>(null);
@@ -212,7 +212,8 @@ export default function App() {
             </h2>
             <p className="mt-3 text-bodytext text-sm sm:text-base leading-relaxed">
               Wähle einen Anwendungsfall aus und sieh selbst, wie aus einem langen Prompt ein
-              präziser Einzeiler wird.
+              präziser Einzeiler wird. Trotz englischer Kürzel antwortet die KI automatisch auf
+              Deutsch – bzw. immer in der Sprache, in der du schreibst.
             </p>
           </div>
 

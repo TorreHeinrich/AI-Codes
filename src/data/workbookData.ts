@@ -148,7 +148,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: 'Gibt es wirklich kein Geheimmenü – wie funktionieren die Codes?',
     answer:
-      'Wir spielen mit offenen Karten: Es gibt kein verstecktes Entwickler-Menü. KI-Modelle wurden mit riesigen Mengen an Internettexten, Fachforen und Design-Datenbanken trainiert. Kürzel wie /ELI5 oder /EXPLODEDVIEW rufen diese tief verankerten Konzepte sofort ab – wie ein stark komprimierter Profi-Prompt.',
+      'Wir spielen mit offenen Karten: Es gibt kein verstecktes Entwickler-Menü. KI-Modelle wurden mit riesigen Mengen an Internettexten, Fachforen und Design-Datenbanken trainiert. Kürzel wie /ELI5 oder /EXPLODEDVIEW rufen diese tief verankerten Konzepte sofort ab – wie ein stark komprimierter Profi-Prompt. Auch wenn die Kürzel selbst auf Englisch sind (z. B. /XRAY, /ELI5, /TLDR), antwortet deine KI automatisch auf Deutsch – bzw. immer in der Sprache, in der du deine Anfrage schreibst.',
   },
   {
     question: 'Muss ich Software oder ein Plugin installieren?',
