@@ -134,11 +134,11 @@ export function WorkbookBundleMockup() {
                 </div>
 
                 <div className="pt-2 border-t border-white/10 flex items-center justify-center gap-1.5">
-                  <span className="w-3.5 h-3.5 rounded-[3px] bg-xraycyan text-[#040C18] font-display font-extrabold text-[8px] flex items-center justify-center">
-                    td
+                  <span className="w-3.5 h-3.5 rounded-[3px] bg-accent text-[#040C18] font-display font-extrabold text-[8px] flex items-center justify-center">
+                    te
                   </span>
                   <span className="font-display font-bold text-[10px] text-white tracking-tight">
-                    tedigital
+                    digital
                   </span>
                 </div>
               </div>

@@ -88,12 +88,12 @@ export default function App() {
       <header className="max-w-6xl w-full mx-auto px-4 pt-6 pb-4 flex items-center justify-between gap-4 sm:gap-8">
         <a
           href="#"
-          className="inline-flex items-center gap-2.5 whitespace-nowrap shrink-0 group focus-visible:outline-2 focus-visible:outline-accent rounded"
+          className="inline-flex items-center gap-2 whitespace-nowrap shrink-0 group focus-visible:outline-2 focus-visible:outline-accent rounded"
         >
           <span className="w-8 h-8 rounded-[5px] bg-accent flex items-center justify-center font-display font-extrabold text-navy text-sm tracking-tight group-hover:scale-105 transition-transform">
-            td
+            te
           </span>
-          <span className="font-display font-bold text-ink text-xl tracking-tight">tedigital</span>
+          <span className="font-display font-bold text-ink text-xl tracking-tight">digital</span>
         </a>
 
         <nav
@@ -139,7 +139,7 @@ export default function App() {
         <section className="max-w-6xl mx-auto px-4 pt-8 pb-16 md:pt-12 md:pb-24">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Linke Spalte: Copy & CTA */}
-            <div className="lg:col-span-6 space-y-6 min-w-0 w-full">
+            <div className="lg:col-span-6 space-y-6 min-w-0 w-full relative z-10">
               <p className="font-mono text-xs tracking-wide text-accent font-semibold">
                 Für ChatGPT, Claude, Gemini &amp; Bild-KIs
               </p>
@@ -168,18 +168,18 @@ export default function App() {
                 – und hol sofort bessere Ergebnisse aus deiner KI.
               </p>
 
-              <div className="pt-2 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 min-w-0 w-full">
+              <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 min-w-0 w-full">
                 <button
                   type="button"
                   onClick={() => setModalType('checkout')}
-                  className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accenthover text-navy font-display font-bold text-sm sm:text-[15px] px-5 py-3.5 rounded-lg shadow-lg shadow-accent/20 transition-transform hover:-translate-y-0.5 whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-white"
+                  className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accenthover text-navy font-display font-bold text-sm px-5 py-3.5 rounded-lg shadow-lg shadow-accent/20 transition-transform hover:-translate-y-0.5 whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-white"
                 >
                   <span>Jetzt PDF-Paket sichern – 14,95 €</span>
                   <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />
                 </button>
                 <a
                   href="#gratis-probe"
-                  className="inline-flex items-center justify-center bg-[#142D52] hover:bg-[#1B3B6B] border border-[#3B5F91] hover:border-xraycyan/60 text-ink hover:text-white font-medium text-sm sm:text-[15px] px-4 py-3.5 rounded-lg shadow-sm transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-accent"
+                  className="inline-flex items-center justify-center bg-[#18355E] hover:bg-[#21477D] border border-[#547DB8] hover:border-xraycyan text-white font-medium text-sm px-4 py-3.5 rounded-lg shadow-sm transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-accent"
                 >
                   Erst 20 Codes gratis testen
                 </a>
@@ -195,7 +195,7 @@ export default function App() {
             </div>
 
             {/* Rechte Spalte: Produkt-Mockup */}
-            <div className="lg:col-span-6 min-w-0 w-full">
+            <div className="lg:col-span-6 min-w-0 w-full relative z-0">
               <WorkbookBundleMockup />
             </div>
           </div>
@@ -930,11 +930,11 @@ export default function App() {
       <footer className="border-t border-line bg-chip/80 mt-12">
         <div className="max-w-6xl mx-auto px-4 py-10">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-8 border-b border-line/60">
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2">
               <span className="w-7 h-7 rounded-[5px] bg-accent flex items-center justify-center font-display font-extrabold text-navy text-xs">
-                td
+                te
               </span>
-              <span className="font-display font-bold text-ink text-lg">tedigital</span>
+              <span className="font-display font-bold text-ink text-lg">digital</span>
             </div>
 
             <div className="flex flex-wrap gap-6 font-mono text-xs text-labelgray">
