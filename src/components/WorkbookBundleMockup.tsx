@@ -261,20 +261,22 @@ export function WorkbookBundleMockup() {
         </div>
 
         {/* Interaktiver PDF-Ansicht Umschalter unter dem Mockup */}
-        <div className="mt-3 pt-2.5 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-slate-600">
-          <span>200 KI-Codes · PDF-Paket (Dark &amp; Print inklusive)</span>
+        <div className="mt-3 pt-2.5 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-slate-800">
+          <span className="font-semibold text-slate-900">
+            200 KI-Codes · PDF-Paket (Dark &amp; Print inklusive)
+          </span>
           <div
-            className="inline-flex items-center gap-1 p-0.5 bg-slate-200/80 rounded-md"
+            className="inline-flex items-center gap-1 p-0.5 bg-slate-200/90 rounded-md"
             role="group"
             aria-label="PDF-Vorschau umschalten"
           >
             <button
               type="button"
               onClick={() => setPdfPreview('dark')}
-              className={`px-2 py-1 rounded text-[10px] font-bold transition-colors whitespace-nowrap shrink-0 ${
+              className={`px-2 py-1 rounded text-[10px] font-bold transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                 pdfPreview === 'dark'
                   ? 'bg-navy text-white shadow-sm'
-                  : 'text-slate-600 hover:text-slate-900'
+                  : 'text-slate-700 hover:text-slate-950'
               }`}
             >
               Dark PDF
@@ -282,10 +284,10 @@ export function WorkbookBundleMockup() {
             <button
               type="button"
               onClick={() => setPdfPreview('print')}
-              className={`px-2 py-1 rounded text-[10px] font-bold transition-colors whitespace-nowrap shrink-0 ${
+              className={`px-2 py-1 rounded text-[10px] font-bold transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                 pdfPreview === 'print'
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-white text-slate-950 shadow-sm'
+                  : 'text-slate-700 hover:text-slate-950'
               }`}
             >
               Print PDF
