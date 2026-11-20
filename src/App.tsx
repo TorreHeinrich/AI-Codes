@@ -137,9 +137,9 @@ export default function App() {
       <main className="flex-1 overflow-x-hidden">
         {/* 3. HERO BEREICH */}
         <section className="max-w-6xl mx-auto px-4 pt-8 pb-16 md:pt-12 md:pb-24">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-10 items-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Linke Spalte: Copy & CTA */}
-            <div className="lg:col-span-6 space-y-6 min-w-0">
+            <div className="lg:col-span-6 space-y-6 min-w-0 w-full">
               <p className="font-mono text-xs tracking-wide text-accent font-semibold">
                 Für ChatGPT, Claude, Gemini &amp; Bild-KIs
               </p>
@@ -168,18 +168,18 @@ export default function App() {
                 – und hol sofort bessere Ergebnisse aus deiner KI.
               </p>
 
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+              <div className="pt-2 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 min-w-0 w-full">
                 <button
                   type="button"
                   onClick={() => setModalType('checkout')}
-                  className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accenthover text-navy font-display font-bold text-sm sm:text-base px-4 sm:px-6 py-4 rounded-lg shadow-lg shadow-accent/20 transition-transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accenthover text-navy font-display font-bold text-sm sm:text-[15px] px-5 py-3.5 rounded-lg shadow-lg shadow-accent/20 transition-transform hover:-translate-y-0.5 whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-white"
                 >
                   <span>Jetzt PDF-Paket sichern – 14,95 €</span>
-                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                  <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />
                 </button>
                 <a
                   href="#gratis-probe"
-                  className="inline-flex items-center justify-center bg-panel hover:bg-line/70 border border-line text-ink font-medium text-sm sm:text-base px-5 py-4 rounded-lg transition-colors whitespace-nowrap"
+                  className="inline-flex items-center justify-center bg-[#142D52] hover:bg-[#1B3B6B] border border-[#3B5F91] hover:border-xraycyan/60 text-ink hover:text-white font-medium text-sm sm:text-[15px] px-4 py-3.5 rounded-lg shadow-sm transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-accent"
                 >
                   Erst 20 Codes gratis testen
                 </a>
@@ -195,7 +195,7 @@ export default function App() {
             </div>
 
             {/* Rechte Spalte: Produkt-Mockup */}
-            <div className="lg:col-span-6 min-w-0">
+            <div className="lg:col-span-6 min-w-0 w-full">
               <WorkbookBundleMockup />
             </div>
           </div>

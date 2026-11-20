@@ -7,16 +7,16 @@ export function WorkbookBundleMockup() {
   const isPrint = pdfPreview === 'print';
 
   return (
-    <div className="relative">
+    <div className="relative w-full max-w-full min-w-0">
       <div
-        className="absolute -inset-3 rounded-2xl blur-2xl opacity-60 pointer-events-none"
+        className="absolute inset-0 rounded-2xl blur-xl opacity-50 pointer-events-none"
         style={{
           background:
             'radial-gradient(circle at 25% 30%, rgba(143, 227, 255, 0.18), transparent 55%), radial-gradient(circle at 80% 75%, rgba(232, 137, 12, 0.16), transparent 55%)',
         }}
       />
 
-      <div className="relative bg-slate-50 rounded-2xl p-4 sm:p-6 shadow-2xl border border-white/20 overflow-hidden">
+      <div className="relative w-full bg-slate-50 rounded-2xl p-4 sm:p-6 shadow-2xl border border-white/20 overflow-hidden">
         <div className="grid grid-cols-12 gap-3 sm:gap-4 items-center py-2">
           {/* LINKS: 3D-Hardcover Buch (5 Spalten) */}
           <div className="col-span-5 relative transform -rotate-1 hover:rotate-0 transition-transform duration-200">
