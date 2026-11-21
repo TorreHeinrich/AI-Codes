@@ -29,6 +29,7 @@ export default function App() {
   const [leadEmail, setLeadEmail] = useState('');
   const [leadError, setLeadError] = useState<string | null>(null);
   const [submittedEmail, setSubmittedEmail] = useState<string | null>(null);
+  const [isSubmittingLead, setIsSubmittingLead] = useState(false);
   const [modalType, setModalType] = useState<ModalType>(null);
 
   const activeExample = COMPARISON_EXAMPLES[activeExampleIdx];
@@ -48,7 +49,7 @@ export default function App() {
     setTimeout(() => setCopiedKey(null), 1800);
   };
 
-  const handleLeadSubmit = (e: FormEvent) => {
+  const handleLeadSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const trimmed = leadEmail.trim();
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -56,9 +57,32 @@ export default function App() {
       setLeadError('Bitte gib eine gültige E-Mail-Adresse ein.');
       return;
     }
+
     setLeadError(null);
-    setSubmittedEmail(trimmed);
-    setLeadEmail('');
+    setIsSubmittingLead(true);
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: trimmed }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        setLeadError(
+          data.error || 'Eintragung gerade nicht möglich. Bitte versuche es gleich noch einmal.'
+        );
+        return;
+      }
+
+      setSubmittedEmail(trimmed);
+      setLeadEmail('');
+    } catch {
+      setLeadError('Netzwerkfehler beim Senden. Bitte prüfe deine Verbindung und versuche es erneut.');
+    } finally {
+      setIsSubmittingLead(false);
+    }
   };
 
   return (
@@ -141,7 +165,7 @@ export default function App() {
             {/* Linke Spalte: Copy & CTA */}
             <div className="lg:col-span-6 space-y-6 min-w-0 w-full relative z-10">
               <p className="font-mono text-xs tracking-wide text-accent font-semibold">
-                Für ChatGPT, Claude, Gemini &amp; Bild-KIs
+                Für ChatGPT, Claude, Gemini & Bild-KIs
               </p>
 
               <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-[52px] text-ink leading-[1.08] tracking-tight text-balance">
@@ -188,9 +212,9 @@ export default function App() {
               <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs font-mono text-labelgray">
                 <span>Sofort-Download als PDF</span>
                 <span aria-hidden="true">·</span>
-                <span>Dunkle &amp; helle Druck-Version</span>
+                <span>Dunkle & helle Druck-Version</span>
                 <span aria-hidden="true">·</span>
-                <span>Geprüfte KI-Expertise (WBS Training, Google &amp; Vanderbilt)</span>
+                <span>Geprüfte KI-Expertise (WBS Training, Google & Vanderbilt)</span>
               </div>
             </div>
 
@@ -433,7 +457,7 @@ export default function App() {
                 </div>
               </div>
               <p className="mt-4 text-xs text-labelgray leading-relaxed">
-                Plus 105 weitere Text-Codes für Schreiben, Lernen, Struktur &amp; Kritisches Denken.
+                Plus 105 weitere Text-Codes für Schreiben, Lernen, Struktur & Kritisches Denken.
               </p>
             </div>
 
@@ -473,7 +497,7 @@ export default function App() {
                 </div>
               </div>
               <p className="mt-4 text-xs text-labelgray leading-relaxed">
-                Perfekt für Midjourney, DALL-E, Flux, Ideogram &amp; Adobe Firefly.
+                Perfekt für Midjourney, DALL-E, Flux, Ideogram & Adobe Firefly.
               </p>
             </div>
 
@@ -485,7 +509,7 @@ export default function App() {
                   <span className="text-accent font-semibold">Kombi-Rezepte</span>
                 </div>
                 <h3 className="font-display font-bold text-lg text-ink mb-1">
-                  23 Rezepte &amp; 5 Kombi-Regeln
+                  23 Rezepte & 5 Kombi-Regeln
                 </h3>
                 <p className="text-sm text-bodytext/80 mb-4">
                   So werden aus einzelnen Codes ganze Workflows
@@ -498,7 +522,7 @@ export default function App() {
                       › /meetingnotes /actionitems /table
                     </div>
                     <div className="text-xs text-bodytext mt-1.5 leading-relaxed">
-                      Strukturierte Notizen plus Aufgaben, Verantwortliche &amp; Termine als Tabelle.
+                      Strukturierte Notizen plus Aufgaben, Verantwortliche & Termine als Tabelle.
                     </div>
                   </div>
                   <div className="pt-3 border-t border-line">
@@ -541,7 +565,7 @@ export default function App() {
                   <Briefcase className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <h3 className="font-display font-bold text-base text-ink">
-                  Berufstätige &amp; Büroalltag
+                  Berufstätige & Büroalltag
                 </h3>
                 <p className="text-xs sm:text-sm text-bodytext leading-relaxed">
                   E-Mails glätten (<span className="font-mono text-accent">/DIRECT</span>), lange
@@ -556,7 +580,7 @@ export default function App() {
                   <GraduationCap className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <h3 className="font-display font-bold text-base text-ink">
-                  Studierende &amp; Lernende
+                  Studierende & Lernende
                 </h3>
                 <p className="text-xs sm:text-sm text-bodytext leading-relaxed">
                   Komplexe Skripte herunterbrechen (
@@ -571,7 +595,7 @@ export default function App() {
                   <Palette className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <h3 className="font-display font-bold text-base text-ink">
-                  Creator &amp; Selbstständige
+                  Creator & Selbstständige
                 </h3>
                 <p className="text-xs sm:text-sm text-bodytext leading-relaxed">
                   Starke Einstiegssätze schreiben (
@@ -632,9 +656,10 @@ export default function App() {
                 )}
                 <button
                   type="submit"
-                  className="w-full max-w-full bg-chiptag hover:bg-accent hover:text-navy border border-accent/50 text-accent font-display font-bold text-sm sm:text-base py-3.5 px-3 sm:px-5 rounded-lg transition-colors whitespace-normal lg:whitespace-nowrap text-center leading-tight cursor-pointer"
+                  disabled={isSubmittingLead}
+                  className="w-full max-w-full bg-chiptag hover:bg-accent hover:text-navy border border-accent/50 text-accent font-display font-bold text-sm sm:text-base py-3.5 px-3 sm:px-5 rounded-lg transition-colors whitespace-normal lg:whitespace-nowrap text-center leading-tight cursor-pointer disabled:opacity-60"
                 >
-                  Gratis-Spickzettel anfordern
+                  {isSubmittingLead ? 'Wird eingetragen...' : 'Gratis-Spickzettel anfordern'}
                 </button>
 
                 {submittedEmail && (
@@ -676,12 +701,12 @@ export default function App() {
                   Hinter <strong className="text-ink">tedigital</strong> steht{' '}
                   <strong className="text-ink">Torre Ehlers</strong>. Alle 200 KI-Codes basieren auf
                   fundierten Prompt-Engineering-Prinzipien und intensiven Tests in ChatGPT, Claude
-                  &amp; modernen Bild-KIs.
+                  & modernen Bild-KIs.
                 </p>
               </div>
               <div className="shrink-0 inline-flex items-center gap-2 text-xs font-mono text-ink whitespace-nowrap">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" aria-hidden="true" />
-                <span>Zertifiziert &amp; verifizierbar</span>
+                <span>Zertifiziert & verifizierbar</span>
               </div>
             </div>
 
@@ -704,7 +729,7 @@ export default function App() {
                     <p className="text-xs text-bodytext mt-1.5 leading-relaxed">
                       Umfassende staatlich anerkannte Weiterbildung für KI-gestützte Texterstellung,
                       Bildbearbeitung, Video-Editing, Website-/Shop-Entwicklung, Social Media
-                      Marketing sowie Recht &amp; Ethik in der KI-Mediengestaltung.
+                      Marketing sowie Recht & Ethik in der KI-Mediengestaltung.
                     </p>
                   </div>
                 </div>
@@ -824,21 +849,21 @@ export default function App() {
                   <li className="flex items-start gap-2.5">
                     <Check className="w-4 h-4 text-accent shrink-0 mt-0.5" aria-hidden="true" />
                     <span>
-                      <strong>Alle 200 Codes durchnummeriert (001–200):</strong> 110 Text-Codes &amp;
+                      <strong>Alle 200 Codes durchnummeriert (001–200):</strong> 110 Text-Codes &
                       90 Visual-Codes in 11 Kategorien
                     </span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <Check className="w-4 h-4 text-accent shrink-0 mt-0.5" aria-hidden="true" />
                     <span>
-                      <strong>23 fertige Kombi-Rezepte:</strong> Für Arbeit, Studium &amp;
+                      <strong>23 fertige Kombi-Rezepte:</strong> Für Arbeit, Studium &
                       Bildgenerierung
                     </span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <Check className="w-4 h-4 text-accent shrink-0 mt-0.5" aria-hidden="true" />
                     <span>
-                      <strong>Die 5 Kombi-Regeln &amp; Konflikt-Matrix:</strong> Welche Codes
+                      <strong>Die 5 Kombi-Regeln & Konflikt-Matrix:</strong> Welche Codes
                       harmonieren und was sich beißt
                     </span>
                   </li>
@@ -870,7 +895,7 @@ export default function App() {
                   onClick={() => setModalType('checkout')}
                   className="w-full max-w-full bg-accent hover:bg-accenthover text-navy font-display font-bold text-sm sm:text-base py-4 px-4 sm:px-5 rounded-lg shadow-lg shadow-accent/25 transition-transform hover:-translate-y-0.5 whitespace-normal lg:whitespace-nowrap text-center leading-tight cursor-pointer"
                 >
-                  Jetzt kaufen &amp; herunterladen
+                  Jetzt kaufen & herunterladen
                 </button>
 
                 <div className="pt-3 border-t border-line/70 space-y-1.5">
